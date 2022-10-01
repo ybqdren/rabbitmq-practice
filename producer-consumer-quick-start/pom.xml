@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>quick-start</artifactId>
+    <artifactId>producer-consumer-quick-start</artifactId>
 
     <name>quick-start</name>
     <!-- FIXME change it to the project's website -->
