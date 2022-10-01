@@ -1,0 +1,15 @@
+{
+  "name": "rabbitmq-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.51"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
