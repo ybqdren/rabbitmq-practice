@@ -1,10 +1,9 @@
-package com.github.ybqdren;
+package java.com.github.ybqdren.simple;
 
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.concurrent.TimeoutException;
 
 /**
  * 消费者
@@ -12,24 +11,25 @@ import java.util.concurrent.TimeoutException;
  */
 public class Consumer {
     public static void main(String[] args) {
-        Connection conn = RabbitConnFactory.getConnection();
+        Connection conn = com.github.ybqdren.RabbitConnFactory.getConnection();
         try {
             Channel channel = conn.createChannel();
             channel.queueDeclare(
-                    RabbitConstant.QUEUE_NAME,
+                    com.github.ybqdren.RabbitConstant.QUEUE_NAME,
                     false,
                     false,
                     false,
                     null
             );
             channel.basicConsume(
-                    RabbitConstant.QUEUE_NAME,
+                    com.github.ybqdren.RabbitConstant.QUEUE_NAME,
                     false,
                     new Reciver(channel)
             );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 }
@@ -49,6 +49,5 @@ class Reciver extends DefaultConsumer {
         long tagId = envelope.getDeliveryTag();
         System.out.println("收到消息：消息TagId:【%s】，消息内容：【%s】".formatted(tagId,msg));
         channel.basicAck(tagId , false);
-        System.out.println("====消费者：结束消费====");
     }
 }

@@ -1,5 +1,4 @@
 package com.github.ybqdren;
-
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
